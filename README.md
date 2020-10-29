@@ -1,6 +1,6 @@
-# Foobar
+# Página de presentación de Óscar González
 
-Foobar is a Python library for dealing with word pluralization.
+En este Github colgaré mis progresos de DAW
 
 ## Installation
 
