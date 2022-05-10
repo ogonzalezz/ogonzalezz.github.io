@@ -1,0 +1,374 @@
+<template>
+  <b-container>
+    <b-row
+      align-v="center"
+      align-h="center"
+      class="row1"
+      id="homeSection"
+      cols="1"
+    >
+      <b-col>
+        <b-row cols="1">
+          <b-col sm="9" class="text-left">
+            <h1>
+              ÓSCAR <br />
+              GONZÁLEZ
+            </h1>
+          </b-col>
+          <b-col sm="3">
+            <img
+              src="../assets/palmtree.svg"
+              alt=""
+              height="100%"
+              class="palmtree"
+            />
+          </b-col>
+        </b-row>
+      </b-col>
+      <b-col>
+        <b-button class="cta" href="#contactSection">GET IN TOUCH</b-button>
+      </b-col>
+      <!--       <b-col cols="1" sm="3">
+        <cube-3d></cube-3d>
+      </b-col>
+      <b-col>
+        <b-row>
+          <b-col>
+            <div class="name">
+              <img src="../assets/nombre.svg" alt="name" width="100%" />
+              <h1>ÓSCAR GONZÁLEZ</h1>
+            </div>
+          </b-col>
+          <b-col>
+            <b-button style="background-color: #ffc0ad; color: #271c19"
+              >GET IN TOUCH</b-button
+            >
+          </b-col>
+        </b-row>
+      </b-col>
+      <b-col cols="1" sm="3">
+        <cube-3d></cube-3d>
+      </b-col> -->
+    </b-row>
+    <hr />
+    <b-row
+      id="aboutSection"
+      class="mt-4 row2"
+      align-v="center"
+      cols="1"
+      cols-sm="2"
+    >
+      <b-col v-scrollanimation>
+        <div>
+          <img
+            src="../assets/avatar.png"
+            alt=""
+            class="avatarImage"
+            width="100%"
+          />
+        </div>
+      </b-col>
+      <b-col v-scrollanimation>
+        <div class="text-left">
+          <h2 class="pb-4">
+            <img src="../assets/dado1.svg" alt="" height="55vh" /> ABOUT ME
+          </h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
+            porro ad eum, tenetur perferendis molestiae incidunt. Maxime
+            consectetur deserunt qui molestiae impedit facilis, quod eum
+            consequatur consequuntur autem nostrum dolore.
+          </p>
+          <b-button class="cvButton" href="./avatar.png" download
+            >GET MY CV</b-button
+          >
+          <!-- <a href="./avatar.png" download>
+            <button type="button">Download</button>
+          </a> -->
+        </div>
+      </b-col>
+    </b-row>
+    <hr />
+    <b-row
+      id="skillsSection"
+      class="mt-4 row3"
+      align-v="center"
+      cols="1"
+      cols-sm="2"
+    >
+      <b-col v-scrollanimation>
+        <div class="text-left">
+          <h2 class="pb-4">
+            <img src="../assets/dado2.svg" alt="" height="55vh" /> MY SKILLS
+          </h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
+            porro ad eum, tenetur perferendis molestiae incidunt. Maxime
+            consectetur deserunt qui molestiae impedit facilis, quod eum
+            consequatur consequuntur autem nostrum dolore.
+          </p>
+          <button
+            class="btn btn-secondary btn-sm me-2"
+            :class="{ ventanaActiva: selectedSection == section.id }"
+            v-for="(section, index) in sections"
+            :key="section.name"
+            @click="changeSection(index)"
+          >
+            {{ section.name }}
+          </button>
+          <!-- <a href="./avatar.png" download>
+            <button type="button">Download</button>
+          </a> -->
+        </div>
+      </b-col>
+      <b-col v-scrollanimation>
+        <div>
+          <h2
+            v-for="element in sections[selectedSection].elements"
+            :key="element.name"
+          >
+            {{ element.name }}
+          </h2>
+        </div>
+      </b-col>
+    </b-row>
+    <hr />
+    <b-row
+      cols="1"
+      cols-sm="2"
+      class="mt-4 contactInfo row4"
+      id="contactSection"
+    >
+      <b-col class="text-left">
+        <div>
+          <h2 class="text-center">Do you want to work together?</h2>
+        </div>
+        <div class="mt-4">
+          <h3>Address</h3>
+          <p>Montcada i Reixac, Barcelona</p>
+        </div>
+        <div>
+          <h3>Phone</h3>
+          <p>727735532</p>
+        </div>
+        <div>
+          <h3>Email</h3>
+          <p>opt3.oscar@gmail.com</p>
+        </div>
+      </b-col>
+      <b-col align-h="center">
+        <b-card style="max-width: 20rem" class="mx-auto mb-2">
+          <div class="mt-2">Name</div>
+          <b-form-input placeholder="e.g. John Doe"></b-form-input>
+          <div class="mt-2">Email</div>
+          <b-form-input placeholder="Enter your name"></b-form-input>
+          <div class="mt-2">Message</div>
+          <b-form-textarea
+            id="textarea"
+            placeholder="Enter something..."
+            rows="3"
+            max-rows="6"
+          ></b-form-textarea>
+          <b-button href="#" variant="primary" class="mt-2">Send</b-button>
+        </b-card>
+      </b-col>
+    </b-row>
+    <b-row class="mt-4">
+      <footer-landing></footer-landing>
+    </b-row>
+  </b-container>
+</template>
+
+<script>
+/* import SkillsCard from "@/components/SkillsCard.vue"; */
+/* import Cube3d from "@/components/Cube3d.vue"; */
+import FooterLanding from "@/components/FooterLanding.vue";
+export default {
+  name: "Home",
+  components: {
+    /* "skills-card": SkillsCard, */
+    /* "cube-3d": Cube3d, */
+    "footer-landing": FooterLanding,
+  },
+  data() {
+    return {
+      selectedSection: 0,
+      sections: [
+        {
+          id: "0",
+          name: "Inici",
+          elements: [
+            {
+              id: "0",
+              name: "frb",
+              segundo: "0.0",
+            },
+            {
+              id: "1",
+              name: "hnrejy",
+              segundo: "7.0",
+            },
+          ],
+        },
+        {
+          id: "1",
+          name: "Dades",
+          segundo: "7.0",
+        },
+        {
+          id: "2",
+          name: "Expedients",
+          segundo: "10.0",
+        },
+      ],
+    };
+  },
+  methods: {
+    changeSection(index) {
+      this.selectedSection = index;
+      console.log(index);
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+@media only screen and (min-width: 768px) {
+  .row1 {
+    height: 90vh;
+    margin: 0;
+  }
+  .row2 {
+    height: 100vh;
+  }
+  .row3 {
+    height: 100vh;
+  }
+  .row4 {
+    height: 100vh;
+  }
+  .row5 {
+    height: 100vh;
+  }
+  h1 {
+    background-image: url(../assets/text.gif);
+    -webkit-text-stroke: 2px #e68a6e; /* width and color */
+    background-repeat: repeat;
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 130px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Steelfish Rg", "helvetica neue", helvetica, arial, sans-serif;
+    font-weight: 800;
+    -webkit-font-smoothing: antialiased;
+  }
+  .cvButton {
+    background-color: #ffc0ad;
+    color: #271c19;
+    width: 40%;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .row1 {
+    height: 100vh;
+    margin: 0;
+  }
+  .row2 {
+    height: 100vh;
+    padding: 0 35px;
+  }
+  .row3 {
+    height: 100vh;
+    padding: 0 35px;
+  }
+  .row4 {
+    height: 100vh;
+    padding: 0 35px;
+  }
+  .row5 {
+    height: 100vh;
+    padding: 0 35px;
+  }
+  h1 {
+    background-image: url(../assets/text.gif);
+    -webkit-text-stroke: 1px #e68a6e; /* width and color */
+    background-repeat: repeat;
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Steelfish Rg", "helvetica neue", helvetica, arial, sans-serif;
+    font-weight: 800;
+    -webkit-font-smoothing: antialiased;
+  }
+  .palmtree {
+    height: 70%;
+    margin-top: 20px;
+  }
+  .cvButton {
+    background-color: #ffc0ad;
+    color: #271c19;
+    width: 40%;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+}
+.before-enter {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 2s ease-out;
+  overflow-x: hidden;
+}
+.enter {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.contactInfo {
+  color: white;
+}
+.card-body {
+  color: black;
+}
+.avatarImage {
+  opacity: 0.8;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+.cta {
+  background-color: #ffc0ad;
+  color: #271c19;
+  width: 40%;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.cta:hover {
+  background-color: #e68a6e;
+}
+hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    #e68a6e,
+    transparent
+  );
+}
+</style>
