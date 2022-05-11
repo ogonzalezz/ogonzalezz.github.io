@@ -123,25 +123,103 @@
       </b-col>
       <b-col v-scrollanimation>
         <div>
-          <h2
-            v-for="element in sections[selectedSection].elements"
-            :key="element.name"
-          >
-            {{ element.name }}
-          </h2>
+          <b-container class="bv-example-row">
+            <b-row>
+              <b-col
+                cols="3"
+                v-for="element in sections[selectedSection].elements"
+                :key="element.name"
+              >
+                <div
+                  class="m-4"
+                  style="
+                    background-color: #ffc0ad;
+                    border-radius: 10px;
+                    padding: 10px;
+                    width: 60px;
+                  "
+                >
+                  <img :src="element.image" alt="" width="100%" />
+                </div>
+              </b-col>
+            </b-row>
+          </b-container>
         </div>
       </b-col>
     </b-row>
     <hr />
     <b-row
+      id="ProjectsSection"
+      class="mt-4 row4"
+      align-v="center"
       cols="1"
       cols-sm="2"
-      class="mt-4 contactInfo row4"
+    >
+      <b-col v-scrollanimation>
+        <div class="text-left">
+          <h2 class="pb-4">
+            <img src="../assets/dado3.svg" alt="" height="55vh" /> MY SKILLS
+          </h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
+            porro ad eum, tenetur perferendis molestiae incidunt. Maxime
+            consectetur deserunt qui molestiae impedit facilis, quod eum
+            consequatur consequuntur autem nostrum dolore.
+          </p>
+          <button
+            class="btn btn-secondary btn-sm me-2"
+            :class="{ ventanaActiva: selectedSection == section.id }"
+            v-for="(section, index) in sections"
+            :key="section.name"
+            @click="changeSection(index)"
+          >
+            {{ section.name }}
+          </button>
+          <!-- <a href="./avatar.png" download>
+            <button type="button">Download</button>
+          </a> -->
+        </div>
+      </b-col>
+      <b-col v-scrollanimation>
+        <div>
+          <b-container class="bv-example-row">
+            <b-row>
+              <b-col
+                cols="3"
+                v-for="element in sections[selectedSection].elements"
+                :key="element.name"
+              >
+                <div
+                  class="m-4"
+                  style="
+                    background-color: #ffc0ad;
+                    border-radius: 10px;
+                    padding: 10px;
+                    width: 60px;
+                  "
+                >
+                  <img :src="element.image" alt="" width="100%" />
+                </div>
+              </b-col>
+            </b-row>
+          </b-container>
+        </div>
+      </b-col>
+    </b-row>
+    <hr />
+    <b-row
       id="contactSection"
+      class="mt-4 contactInfo row5"
+      align-v="center"
+      cols="1"
+      cols-sm="2"
     >
       <b-col class="text-left">
         <div>
-          <h2 class="text-center">Do you want to work together?</h2>
+          <h2 class="text-center">
+            <img src="../assets/logo2.svg" alt="" height="55vh" />Do you want to
+            work together?
+          </h2>
         </div>
         <div class="mt-4">
           <h3>Address</h3>
@@ -196,17 +274,47 @@ export default {
       sections: [
         {
           id: "0",
-          name: "Inici",
+          name: "SKILLS",
           elements: [
             {
               id: "0",
-              name: "frb",
-              segundo: "0.0",
+              name: "HTML5",
+              image: require("../assets/html5.png"),
             },
             {
               id: "1",
-              name: "hnrejy",
-              segundo: "7.0",
+              name: "CSS3",
+              image: require("../assets/css3.png"),
+            },
+            {
+              id: "2",
+              name: "JAVASCRIPT",
+              image: require("../assets/javascript.png"),
+            },
+            {
+              id: "3",
+              name: "BOOTSTRAP",
+              image: require("../assets/bootstrap.png"),
+            },
+            {
+              id: "4",
+              name: "REACT",
+              image: require("../assets/react.png"),
+            },
+            {
+              id: "5",
+              name: "VUE",
+              image: require("../assets/vue.png"),
+            },
+            {
+              id: "6",
+              name: "PHP",
+              image: require("../assets/php.png"),
+            },
+            {
+              id: "7",
+              name: "LARAVEL",
+              image: require("../assets/laravel.png"),
             },
           ],
         },

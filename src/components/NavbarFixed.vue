@@ -2,7 +2,7 @@
   <div class="fixed-top">
     <b-navbar toggleable="lg" type="dark">
       <b-navbar-brand href="#">
-        <img src="../assets/logo2.svg" alt="Kitten" />
+        <img src="../assets/logo3.svg" alt="Kitten" />
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -12,7 +12,7 @@
           <b-nav-item to="/#homeSection">Home</b-nav-item>
           <b-nav-item to="/#aboutSection">About</b-nav-item>
           <b-nav-item to="/#skillsSection">Skills</b-nav-item>
-          <b-nav-item to="/#skillsSection">Projects</b-nav-item>
+          <b-nav-item to="/#ProjectsSection">Projects</b-nav-item>
           <b-nav-item to="/#contactSection">Contact</b-nav-item>
         </b-navbar-nav>
 
