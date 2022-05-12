@@ -16,39 +16,76 @@
             </h1>
           </b-col>
           <b-col sm="3">
-            <img
+            <div class="grid">
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+              <div class="gridItem"></div>
+            </div>
+            <!--             <img
               src="../assets/palmtree.svg"
               alt=""
               height="100%"
               class="palmtree"
-            />
+            /> -->
           </b-col>
         </b-row>
       </b-col>
       <b-col>
         <b-button class="cta" href="#contactSection">GET IN TOUCH</b-button>
       </b-col>
-      <!--       <b-col cols="1" sm="3">
-        <cube-3d></cube-3d>
-      </b-col>
-      <b-col>
-        <b-row>
-          <b-col>
-            <div class="name">
-              <img src="../assets/nombre.svg" alt="name" width="100%" />
-              <h1>ÓSCAR GONZÁLEZ</h1>
-            </div>
-          </b-col>
-          <b-col>
-            <b-button style="background-color: #ffc0ad; color: #271c19"
-              >GET IN TOUCH</b-button
-            >
-          </b-col>
-        </b-row>
-      </b-col>
-      <b-col cols="1" sm="3">
-        <cube-3d></cube-3d>
-      </b-col> -->
     </b-row>
     <hr />
     <b-row
@@ -58,16 +95,6 @@
       cols="1"
       cols-sm="2"
     >
-      <b-col v-scrollanimation>
-        <div>
-          <img
-            src="../assets/avatar.png"
-            alt=""
-            class="avatarImage"
-            width="100%"
-          />
-        </div>
-      </b-col>
       <b-col v-scrollanimation>
         <div class="text-left">
           <h2 class="pb-4">
@@ -85,6 +112,16 @@
           <!-- <a href="./avatar.png" download>
             <button type="button">Download</button>
           </a> -->
+        </div>
+      </b-col>
+      <b-col v-scrollanimation>
+        <div>
+          <img
+            src="../assets/avatar.png"
+            alt=""
+            class="avatarImage"
+            width="100%"
+          />
         </div>
       </b-col>
     </b-row>
@@ -107,15 +144,14 @@
             consectetur deserunt qui molestiae impedit facilis, quod eum
             consequatur consequuntur autem nostrum dolore.
           </p>
-          <button
-            class="btn btn-secondary btn-sm me-2"
-            :class="{ ventanaActiva: selectedSection == section.id }"
+          <b-button
+            class="me-2 skillsButton"
             v-for="(section, index) in sections"
             :key="section.name"
             @click="changeSection(index)"
           >
             {{ section.name }}
-          </button>
+          </b-button>
           <!-- <a href="./avatar.png" download>
             <button type="button">Download</button>
           </a> -->
@@ -126,7 +162,7 @@
           <b-container class="bv-example-row">
             <b-row>
               <b-col
-                cols="3"
+                cols="4"
                 v-for="element in sections[selectedSection].elements"
                 :key="element.name"
               >
@@ -274,7 +310,7 @@ export default {
       sections: [
         {
           id: "0",
-          name: "SKILLS",
+          name: "LANGUAGES",
           elements: [
             {
               id: "0",
@@ -293,40 +329,92 @@ export default {
             },
             {
               id: "3",
-              name: "BOOTSTRAP",
-              image: require("../assets/bootstrap.png"),
-            },
-            {
-              id: "4",
-              name: "REACT",
-              image: require("../assets/react.png"),
-            },
-            {
-              id: "5",
-              name: "VUE",
-              image: require("../assets/vue.png"),
-            },
-            {
-              id: "6",
               name: "PHP",
               image: require("../assets/php.png"),
             },
             {
-              id: "7",
-              name: "LARAVEL",
-              image: require("../assets/laravel.png"),
+              id: "4",
+              name: "JAVA",
+              image: require("../assets/java.png"),
+            },
+            {
+              id: "5",
+              name: "C++",
+              image: require("../assets/c++.png"),
             },
           ],
         },
         {
           id: "1",
-          name: "Dades",
-          segundo: "7.0",
+          name: "FRAMEWORKS",
+          elements: [
+            {
+              id: "0",
+              name: "VUE",
+              image: require("../assets/vue.png"),
+            },
+            {
+              id: "1",
+              name: "REACT",
+              image: require("../assets/react.png"),
+            },
+            {
+              id: "2",
+              name: "BOOTSTRAP",
+              image: require("../assets/bootstrap.png"),
+            },
+            {
+              id: "3",
+              name: "SQL",
+              image: require("../assets/sql.png"),
+            },
+            {
+              id: "4",
+              name: "LARAVEL",
+              image: require("../assets/laravel.png"),
+            },
+            {
+              id: "5",
+              name: "SASS",
+              image: require("../assets/sass.png"),
+            },
+          ],
         },
         {
           id: "2",
-          name: "Expedients",
-          segundo: "10.0",
+          name: "TOOLS",
+          elements: [
+            {
+              id: "0",
+              name: "Visual Studio Code",
+              image: require("../assets/vscode.png"),
+            },
+            {
+              id: "1",
+              name: "MYSQL",
+              image: require("../assets/mysql.png"),
+            },
+            {
+              id: "2",
+              name: "NETBEANS",
+              image: require("../assets/netbeans.png"),
+            },
+            {
+              id: "3",
+              name: "Git",
+              image: require("../assets/git.png"),
+            },
+            {
+              id: "4",
+              name: "GitHub",
+              image: require("../assets/github.png"),
+            },
+            {
+              id: "5",
+              name: "Trello",
+              image: require("../assets/trello.png"),
+            },
+          ],
         },
       ],
     };
@@ -469,6 +557,17 @@ export default {
 .cta:hover {
   background-color: #e68a6e;
 }
+.skillsButton {
+  background-color: #ffc0ad;
+  color: #271c19;
+  width: 33%;
+  height: 40px;
+  justify-content: center;
+  font-weight: bold;
+}
+.skillsButton:hover {
+  background-color: #e68a6e;
+}
 hr {
   border: 0;
   height: 2px;
@@ -478,5 +577,26 @@ hr {
     #e68a6e,
     transparent
   );
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 400px;
+}
+
+.gridItem {
+  height: 60px;
+  width: 60px;
+  background: #e68a6e;
+  opacity: 0;
+  transition: opacity 2s ease 0.4s, transform 0.8s ease;
+  transform: scale(1);
+}
+
+.gridItem:hover {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  transform: scale(1.04);
 }
 </style>
