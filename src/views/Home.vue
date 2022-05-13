@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container fluid>
     <b-row
       align-v="center"
       align-h="center"
@@ -9,13 +9,13 @@
     >
       <b-col>
         <b-row cols="1">
-          <b-col sm="9" class="text-left">
+          <b-col sm="8" class="text-center">
             <h1>
               ÓSCAR <br />
               GONZÁLEZ
             </h1>
           </b-col>
-          <b-col sm="3">
+          <b-col sm="4">
             <div class="grid" style="position: relative">
               <div class="gridItem"></div>
               <div class="gridItem"></div>
@@ -89,203 +89,210 @@
       </b-col>
     </b-row>
     <hr />
-    <b-row
-      id="aboutSection"
-      class="mt-4 row2"
-      align-v="center"
-      cols="1"
-      cols-sm="2"
-    >
-      <b-col v-scrollanimation>
-        <div class="text-left">
-          <h2 class="pb-4">
-            <img src="../assets/dado1.svg" alt="" height="55vh" /> ABOUT ME
-          </h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
-            porro ad eum, tenetur perferendis molestiae incidunt. Maxime
-            consectetur deserunt qui molestiae impedit facilis, quod eum
-            consequatur consequuntur autem nostrum dolore.
-          </p>
-          <b-button class="cvButton" href="./avatar.png" download
-            >GET MY CV</b-button
-          >
-          <!-- <a href="./avatar.png" download>
+    <b-container>
+      <b-row
+        id="aboutSection"
+        class="mt-4 row2"
+        align-v="center"
+        cols="1"
+        cols-sm="2"
+      >
+        <b-col v-scrollanimation>
+          <div class="text-left">
+            <h2 class="pb-4">
+              <img src="../assets/dado1.svg" alt="" height="55vh" /> ABOUT ME
+            </h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
+              porro ad eum, tenetur perferendis molestiae incidunt. Maxime
+              consectetur deserunt qui molestiae impedit facilis, quod eum
+              consequatur consequuntur autem nostrum dolore.
+            </p>
+            <b-button class="cvButton" href="./avatar.png" download
+              >GET MY CV</b-button
+            >
+            <!-- <a href="./avatar.png" download>
             <button type="button">Download</button>
           </a> -->
-        </div>
-      </b-col>
-      <b-col v-scrollanimation>
-        <div>
-          <img src="../assets/me.png" alt="" class="avatarImage" width="100%" />
-        </div>
-      </b-col>
-    </b-row>
-    <hr />
-    <b-row
-      id="skillsSection"
-      class="mt-4 row3"
-      align-v="center"
-      cols="1"
-      cols-sm="2"
-    >
-      <b-col v-scrollanimation>
-        <div class="text-left">
-          <h2 class="pb-4">
-            <img src="../assets/dado2.svg" alt="" height="55vh" /> MY SKILLS
-          </h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
-            porro ad eum, tenetur perferendis molestiae incidunt. Maxime
-            consectetur deserunt qui molestiae impedit facilis, quod eum
-            consequatur consequuntur autem nostrum dolore.
-          </p>
-          <b-button
-            class="me-2 skillsButton"
-            v-for="(section, index) in sections"
-            :key="section.name"
-            @click="changeSection(index)"
-          >
-            {{ section.name }}
-          </b-button>
-          <!-- <a href="./avatar.png" download>
+          </div>
+        </b-col>
+        <b-col v-scrollanimation>
+          <div>
+            <img
+              src="../assets/me.png"
+              alt=""
+              class="avatarImage"
+              width="100%"
+            />
+          </div>
+        </b-col>
+      </b-row>
+      <hr />
+      <b-row
+        id="skillsSection"
+        class="mt-4 row3"
+        align-v="center"
+        cols="1"
+        cols-sm="2"
+      >
+        <b-col v-scrollanimation>
+          <div class="text-left">
+            <h2 class="pb-4">
+              <img src="../assets/dado2.svg" alt="" height="55vh" /> MY SKILLS
+            </h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
+              porro ad eum, tenetur perferendis molestiae incidunt. Maxime
+              consectetur deserunt qui molestiae impedit facilis, quod eum
+              consequatur consequuntur autem nostrum dolore.
+            </p>
+            <b-button
+              class="me-2 skillsButton"
+              v-for="(section, index) in sections"
+              :key="section.name"
+              @click="changeSection(index)"
+            >
+              {{ section.name }}
+            </b-button>
+            <!-- <a href="./avatar.png" download>
             <button type="button">Download</button>
           </a> -->
-        </div>
-      </b-col>
-      <b-col v-scrollanimation>
-        <div>
-          <b-container class="bv-example-row">
-            <b-row>
-              <b-col
-                cols="4"
-                v-for="element in sections[selectedSection].elements"
-                :key="element.name"
-              >
-                <div
-                  class="m-4"
-                  style="
-                    background-color: #ffc0ad;
-                    border-radius: 10px;
-                    padding: 10px;
-                    width: 60px;
-                  "
+          </div>
+        </b-col>
+        <b-col v-scrollanimation>
+          <div>
+            <b-container class="bv-example-row">
+              <b-row>
+                <b-col
+                  cols="4"
+                  v-for="element in sections[selectedSection].elements"
+                  :key="element.name"
                 >
-                  <img :src="element.image" alt="" width="100%" />
-                </div>
-              </b-col>
-            </b-row>
-          </b-container>
-        </div>
-      </b-col>
-    </b-row>
-    <hr />
-    <b-row
-      id="ProjectsSection"
-      class="mt-4 row4"
-      align-v="center"
-      cols="1"
-      cols-sm="2"
-    >
-      <b-col v-scrollanimation>
-        <div class="text-left">
-          <h2 class="pb-4">
-            <img src="../assets/dado3.svg" alt="" height="55vh" /> MY PROJECTS
-          </h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
-            porro ad eum, tenetur perferendis molestiae incidunt. Maxime
-            consectetur deserunt qui molestiae impedit facilis, quod eum
-            consequatur consequuntur autem nostrum dolore.
-          </p>
-        </div>
-      </b-col>
-      <b-col v-scrollanimation>
-        <div>
-          <b-carousel
-            id="carousel-fade"
-            style="text-shadow: 0px 0px 2px #000"
-            fade
-            indicators
-            img-width="1024"
-            img-height="480"
-          >
-            <a
-              href="https://github.com/OscarCastellaSanSegundo/Project2"
-              target="_blank"
+                  <div
+                    class="m-4"
+                    style="
+                      background-color: #ffc0ad;
+                      border-radius: 10px;
+                      padding: 10px;
+                      width: 60px;
+                    "
+                  >
+                    <img :src="element.image" alt="" width="100%" />
+                  </div>
+                </b-col>
+              </b-row>
+            </b-container>
+          </div>
+        </b-col>
+      </b-row>
+      <hr />
+      <b-row
+        id="ProjectsSection"
+        class="mt-4 row4"
+        align-v="center"
+        cols="1"
+        cols-sm="2"
+      >
+        <b-col v-scrollanimation>
+          <div class="text-left">
+            <h2 class="pb-4">
+              <img src="../assets/dado3.svg" alt="" height="55vh" /> MY PROJECTS
+            </h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
+              porro ad eum, tenetur perferendis molestiae incidunt. Maxime
+              consectetur deserunt qui molestiae impedit facilis, quod eum
+              consequatur consequuntur autem nostrum dolore.
+            </p>
+          </div>
+        </b-col>
+        <b-col v-scrollanimation>
+          <div>
+            <b-carousel
+              id="carousel-fade"
+              style="text-shadow: 0px 0px 2px #000"
+              fade
+              indicators
+              img-width="1024"
+              img-height="480"
             >
-              <b-carousel-slide
-                caption="JS GAME"
-                img-src="https://picsum.photos/1024/480/?image=10"
-              ></b-carousel-slide>
-            </a>
-            <a
-              href="https://github.com/OscarCastellaSanSegundo/Project2"
-              target="_blank"
-            >
-              <b-carousel-slide
-                caption="HEALTH APP"
-                img-src="https://picsum.photos/1024/480/?image=10"
-              ></b-carousel-slide>
-            </a>
-            <a
-              href="https://github.com/OscarCastellaSanSegundo/Project2"
-              target="_blank"
-            >
-              <b-carousel-slide
-                caption="MOVIE APP"
-                img-src="https://picsum.photos/1024/480/?image=10"
-              ></b-carousel-slide>
-            </a>
-          </b-carousel>
-        </div>
-      </b-col>
-    </b-row>
-    <hr />
-    <b-row
-      id="contactSection"
-      class="mt-4 contactInfo row5"
-      align-v="center"
-      cols="1"
-      cols-sm="2"
-    >
-      <b-col class="text-left">
-        <div>
-          <h2 class="text-center">
-            <img src="../assets/logo2.svg" alt="" height="55vh" />Do you want to
-            work together?
-          </h2>
-        </div>
-        <div class="mt-4">
-          <h3>Address</h3>
-          <p>Montcada i Reixac, Barcelona</p>
-        </div>
-        <div>
-          <h3>Phone</h3>
-          <p>727735532</p>
-        </div>
-        <div>
-          <h3>Email</h3>
-          <p>opt3.oscar@gmail.com</p>
-        </div>
-      </b-col>
-      <b-col align-h="center">
-        <b-card style="max-width: 20rem" class="mx-auto mb-2">
-          <div class="mt-2">Name</div>
-          <b-form-input placeholder="e.g. John Doe"></b-form-input>
-          <div class="mt-2">Email</div>
-          <b-form-input placeholder="Enter your name"></b-form-input>
-          <div class="mt-2">Message</div>
-          <b-form-textarea
-            id="textarea"
-            placeholder="Enter something..."
-            rows="3"
-            max-rows="6"
-          ></b-form-textarea>
-          <b-button href="#" variant="primary" class="mt-2">Send</b-button>
-        </b-card>
-      </b-col>
-    </b-row>
+              <a
+                href="https://github.com/OscarCastellaSanSegundo/Project2"
+                target="_blank"
+              >
+                <b-carousel-slide
+                  caption="JS GAME"
+                  img-src="https://picsum.photos/1024/480/?image=10"
+                ></b-carousel-slide>
+              </a>
+              <a
+                href="https://github.com/OscarCastellaSanSegundo/Project2"
+                target="_blank"
+              >
+                <b-carousel-slide
+                  caption="HEALTH APP"
+                  img-src="https://picsum.photos/1024/480/?image=10"
+                ></b-carousel-slide>
+              </a>
+              <a
+                href="https://github.com/OscarCastellaSanSegundo/Project2"
+                target="_blank"
+              >
+                <b-carousel-slide
+                  caption="MOVIE APP"
+                  img-src="https://picsum.photos/1024/480/?image=10"
+                ></b-carousel-slide>
+              </a>
+            </b-carousel>
+          </div>
+        </b-col>
+      </b-row>
+      <hr />
+      <b-row
+        id="contactSection"
+        class="mt-4 contactInfo row5"
+        align-v="center"
+        cols="1"
+        cols-sm="2"
+      >
+        <b-col class="text-left">
+          <div>
+            <h2 class="text-center">
+              <img src="../assets/logo2.svg" alt="" height="55vh" />Do you want
+              to work together?
+            </h2>
+          </div>
+          <div class="mt-4">
+            <h3>Address</h3>
+            <p>Montcada i Reixac, Barcelona</p>
+          </div>
+          <div>
+            <h3>Phone</h3>
+            <p>727735532</p>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <p>opt3.oscar@gmail.com</p>
+          </div>
+        </b-col>
+        <b-col align-h="center">
+          <b-card style="max-width: 20rem" class="mx-auto mb-2">
+            <div class="mt-2">Name</div>
+            <b-form-input placeholder="e.g. John Doe"></b-form-input>
+            <div class="mt-2">Email</div>
+            <b-form-input placeholder="Enter your name"></b-form-input>
+            <div class="mt-2">Message</div>
+            <b-form-textarea
+              id="textarea"
+              placeholder="Enter something..."
+              rows="3"
+              max-rows="6"
+            ></b-form-textarea>
+            <b-button href="#" variant="primary" class="mt-2">Send</b-button>
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
   </b-container>
 </template>
 
@@ -497,7 +504,7 @@ export default {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: "Steelfish Rg", "helvetica neue", helvetica, arial, sans-serif;
@@ -577,13 +584,12 @@ hr {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  width: 500px;
-  height: 400px;
+  width: 100%;
 }
 
 .gridItem {
-  height: 60px;
-  width: 60px;
+  height: 30px;
+  width: 30px;
   background-image: url("../assets/logo3.png");
   background-position: center;
   background-repeat: no-repeat;
