@@ -16,7 +16,7 @@
             </h1>
           </b-col>
           <b-col sm="3">
-            <div class="grid">
+            <div class="grid" style="position: relative">
               <div class="gridItem"></div>
               <div class="gridItem"></div>
               <div class="gridItem"></div>
@@ -73,6 +73,7 @@
               <div class="gridItem"></div>
               <div class="gridItem"></div>
               <div class="gridItem"></div>
+              <div class="gridItem2">?</div>
             </div>
             <!--             <img
               src="../assets/palmtree.svg"
@@ -116,12 +117,7 @@
       </b-col>
       <b-col v-scrollanimation>
         <div>
-          <img
-            src="../assets/avatar.png"
-            alt=""
-            class="avatarImage"
-            width="100%"
-          />
+          <img src="../assets/me.png" alt="" class="avatarImage" width="100%" />
         </div>
       </b-col>
     </b-row>
@@ -194,7 +190,7 @@
       <b-col v-scrollanimation>
         <div class="text-left">
           <h2 class="pb-4">
-            <img src="../assets/dado3.svg" alt="" height="55vh" /> MY SKILLS
+            <img src="../assets/dado3.svg" alt="" height="55vh" /> MY PROJECTS
           </h2>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
@@ -202,43 +198,46 @@
             consectetur deserunt qui molestiae impedit facilis, quod eum
             consequatur consequuntur autem nostrum dolore.
           </p>
-          <button
-            class="btn btn-secondary btn-sm me-2"
-            :class="{ ventanaActiva: selectedSection == section.id }"
-            v-for="(section, index) in sections"
-            :key="section.name"
-            @click="changeSection(index)"
-          >
-            {{ section.name }}
-          </button>
-          <!-- <a href="./avatar.png" download>
-            <button type="button">Download</button>
-          </a> -->
         </div>
       </b-col>
       <b-col v-scrollanimation>
         <div>
-          <b-container class="bv-example-row">
-            <b-row>
-              <b-col
-                cols="3"
-                v-for="element in sections[selectedSection].elements"
-                :key="element.name"
-              >
-                <div
-                  class="m-4"
-                  style="
-                    background-color: #ffc0ad;
-                    border-radius: 10px;
-                    padding: 10px;
-                    width: 60px;
-                  "
-                >
-                  <img :src="element.image" alt="" width="100%" />
-                </div>
-              </b-col>
-            </b-row>
-          </b-container>
+          <b-carousel
+            id="carousel-fade"
+            style="text-shadow: 0px 0px 2px #000"
+            fade
+            indicators
+            img-width="1024"
+            img-height="480"
+          >
+            <a
+              href="https://github.com/OscarCastellaSanSegundo/Project2"
+              target="_blank"
+            >
+              <b-carousel-slide
+                caption="JS GAME"
+                img-src="https://picsum.photos/1024/480/?image=10"
+              ></b-carousel-slide>
+            </a>
+            <a
+              href="https://github.com/OscarCastellaSanSegundo/Project2"
+              target="_blank"
+            >
+              <b-carousel-slide
+                caption="HEALTH APP"
+                img-src="https://picsum.photos/1024/480/?image=10"
+              ></b-carousel-slide>
+            </a>
+            <a
+              href="https://github.com/OscarCastellaSanSegundo/Project2"
+              target="_blank"
+            >
+              <b-carousel-slide
+                caption="MOVIE APP"
+                img-src="https://picsum.photos/1024/480/?image=10"
+              ></b-carousel-slide>
+            </a>
+          </b-carousel>
         </div>
       </b-col>
     </b-row>
@@ -287,22 +286,19 @@
         </b-card>
       </b-col>
     </b-row>
-    <b-row class="mt-4">
-      <footer-landing></footer-landing>
-    </b-row>
   </b-container>
 </template>
 
 <script>
 /* import SkillsCard from "@/components/SkillsCard.vue"; */
 /* import Cube3d from "@/components/Cube3d.vue"; */
-import FooterLanding from "@/components/FooterLanding.vue";
+/* import FooterLanding from "@/components/FooterLanding.vue"; */
 export default {
   name: "Home",
   components: {
     /* "skills-card": SkillsCard, */
     /* "cube-3d": Cube3d, */
-    "footer-landing": FooterLanding,
+    /* "footer-landing": FooterLanding, */
   },
   data() {
     return {
@@ -588,7 +584,10 @@ hr {
 .gridItem {
   height: 60px;
   width: 60px;
-  background: #e68a6e;
+  background-image: url("../assets/logo3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   opacity: 0;
   transition: opacity 2s ease 0.4s, transform 0.8s ease;
   transform: scale(1);
@@ -598,5 +597,11 @@ hr {
   opacity: 1;
   transition: opacity 0.2s ease;
   transform: scale(1.04);
+}
+
+.gridItem2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 </style>
