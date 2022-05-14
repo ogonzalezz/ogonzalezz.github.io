@@ -84,7 +84,7 @@
           </b-col>
         </b-row>
       </b-col>
-      <b-col>
+      <b-col align-self="start">
         <b-button class="cta" href="#contactSection">GET IN TOUCH</b-button>
       </b-col>
     </b-row>
@@ -222,7 +222,7 @@
               >
                 <b-carousel-slide
                   caption="JS GAME"
-                  img-src="https://picsum.photos/1024/480/?image=10"
+                  img-src="../assets/jsGame.gif"
                 ></b-carousel-slide>
               </a>
               <a
@@ -231,16 +231,13 @@
               >
                 <b-carousel-slide
                   caption="HEALTH APP"
-                  img-src="https://picsum.photos/1024/480/?image=10"
+                  img-src="../assets/health.gif"
                 ></b-carousel-slide>
               </a>
-              <a
-                href="https://github.com/OscarCastellaSanSegundo/Project2"
-                target="_blank"
-              >
+              <a href="https://movieapp-mpf8.onrender.com" target="_blank">
                 <b-carousel-slide
                   caption="MOVIE APP"
-                  img-src="https://picsum.photos/1024/480/?image=10"
+                  img-src="../assets/movieApp.gif"
                 ></b-carousel-slide>
               </a>
             </b-carousel>
@@ -273,6 +270,31 @@
           <div>
             <h3>Email</h3>
             <p>opt3.oscar@gmail.com</p>
+          </div>
+          <div>
+            <h3>Social media</h3>
+            <b-container class="bv-example-row">
+              <b-row>
+                <b-col
+                  cols="2"
+                  v-for="element in socialMedia[0].elements"
+                  :key="element.name"
+                >
+                  <div
+                    style="
+                      background-color: #ffc0ad;
+                      border-radius: 10px;
+                      padding: 10px;
+                      width: 60px;
+                    "
+                  >
+                    <a :href="element.link" target="_blank">
+                      <img :src="element.image" alt="" width="100%" />
+                    </a>
+                  </div>
+                </b-col>
+              </b-row>
+            </b-container>
           </div>
         </b-col>
         <b-col align-h="center">
@@ -310,6 +332,32 @@ export default {
   data() {
     return {
       selectedSection: 0,
+      socialMedia: [
+        {
+          id: "0",
+          name: "icons",
+          elements: [
+            {
+              id: "0",
+              name: "Github",
+              image: require("../assets/githubMedia.png"),
+              link: "https://github.com/ogonzalezz",
+            },
+            {
+              id: "1",
+              name: "Linkedin",
+              image: require("../assets/linkedinMedia.png"),
+              link: "https://www.linkedin.com/in/oscar-gonz%C3%A1lez-590474222/",
+            },
+            {
+              id: "2",
+              name: "Instagram",
+              image: require("../assets/instaMedia.png"),
+              link: "https://www.instagram.com/el_zarrias/",
+            },
+          ],
+        },
+      ],
       sections: [
         {
           id: "0",
@@ -474,6 +522,18 @@ export default {
     justify-content: center;
     font-weight: bold;
   }
+
+  .gridItem {
+    height: 60px;
+    width: 60px;
+    background-image: url("../assets/logo3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 2s ease 0.4s, transform 0.8s ease;
+    transform: scale(1);
+  }
 }
 @media only screen and (max-width: 768px) {
   .row1 {
@@ -504,7 +564,7 @@ export default {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 35px;
+    font-size: 45px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: "Steelfish Rg", "helvetica neue", helvetica, arial, sans-serif;
@@ -524,6 +584,18 @@ export default {
     align-items: center;
     justify-content: center;
     font-weight: bold;
+  }
+
+  .gridItem {
+    height: 30px;
+    width: 30px;
+    background-image: url("../assets/logo3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 2s ease 0.4s, transform 0.8s ease;
+    transform: scale(1);
   }
 }
 .before-enter {
@@ -585,18 +657,6 @@ hr {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-}
-
-.gridItem {
-  height: 30px;
-  width: 30px;
-  background-image: url("../assets/logo3.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0;
-  transition: opacity 2s ease 0.4s, transform 0.8s ease;
-  transform: scale(1);
 }
 
 .gridItem:hover {
