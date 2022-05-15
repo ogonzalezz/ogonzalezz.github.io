@@ -73,7 +73,7 @@
               <div class="gridItem"></div>
               <div class="gridItem"></div>
               <div class="gridItem"></div>
-              <div class="gridItem2">?</div>
+              <div class="gridItem2">Tap</div>
             </div>
             <!--             <img
               src="../assets/palmtree.svg"
@@ -102,12 +102,7 @@
             <h2 class="pb-4">
               <img src="../assets/dado1.svg" alt="" height="55vh" /> ABOUT ME
             </h2>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
-              porro ad eum, tenetur perferendis molestiae incidunt. Maxime
-              consectetur deserunt qui molestiae impedit facilis, quod eum
-              consequatur consequuntur autem nostrum dolore.
-            </p>
+            <p>Here you have a video where you can know me better.</p>
             <b-button class="cvButton" href="./avatar.png" download
               >GET MY CV</b-button
             >
@@ -138,13 +133,11 @@
         <b-col v-scrollanimation>
           <div class="text-left">
             <h2 class="pb-4">
-              <img src="../assets/dado2.svg" alt="" height="55vh" /> MY SKILLS
+              <img src="../assets/dado2.svg" alt="" height="55vh" />
+              MY SKILLS
             </h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
-              porro ad eum, tenetur perferendis molestiae incidunt. Maxime
-              consectetur deserunt qui molestiae impedit facilis, quod eum
-              consequatur consequuntur autem nostrum dolore.
+              This is my current knowledge but I will never stop learning more!
             </p>
             <b-button
               class="me-2 skillsButton"
@@ -152,7 +145,6 @@
               :key="section.name"
               @click="changeSection(index)"
             >
-              {{ section.name }}
             </b-button>
             <!-- <a href="./avatar.png" download>
             <button type="button">Download</button>
@@ -164,7 +156,8 @@
             <b-container class="bv-example-row">
               <b-row>
                 <b-col
-                  cols="4"
+                  cols="5"
+                  md="4"
                   v-for="element in sections[selectedSection].elements"
                   :key="element.name"
                 >
@@ -177,7 +170,13 @@
                       width: 60px;
                     "
                   >
-                    <img :src="element.image" alt="" width="100%" />
+                    <img
+                      :src="element.image"
+                      alt=""
+                      width="100%"
+                      v-b-tooltip.hover
+                      :title="element.name"
+                    />
                   </div>
                 </b-col>
               </b-row>
@@ -198,12 +197,7 @@
             <h2 class="pb-4">
               <img src="../assets/dado3.svg" alt="" height="55vh" /> MY PROJECTS
             </h2>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
-              porro ad eum, tenetur perferendis molestiae incidunt. Maxime
-              consectetur deserunt qui molestiae impedit facilis, quod eum
-              consequatur consequuntur autem nostrum dolore.
-            </p>
+            <p>Here are some of the projects I've done.</p>
           </div>
         </b-col>
         <b-col v-scrollanimation>
@@ -212,6 +206,7 @@
               id="carousel-fade"
               style="text-shadow: 0px 0px 2px #000"
               fade
+              controls
               indicators
               img-width="1024"
               img-height="480"
@@ -221,8 +216,8 @@
                 target="_blank"
               >
                 <b-carousel-slide
-                  caption="JS GAME"
                   img-src="../assets/jsGame.gif"
+                  style="border-radius: 20px"
                 ></b-carousel-slide>
               </a>
               <a
@@ -230,14 +225,14 @@
                 target="_blank"
               >
                 <b-carousel-slide
-                  caption="HEALTH APP"
                   img-src="../assets/health.gif"
+                  style="border-radius: 20px"
                 ></b-carousel-slide>
               </a>
               <a href="https://movieapp-mpf8.onrender.com" target="_blank">
                 <b-carousel-slide
-                  caption="MOVIE APP"
                   img-src="../assets/movieApp.gif"
+                  style="border-radius: 20px"
                 ></b-carousel-slide>
               </a>
             </b-carousel>
@@ -254,9 +249,9 @@
       >
         <b-col class="text-left">
           <div>
-            <h2 class="text-center">
-              <img src="../assets/logo2.svg" alt="" height="55vh" />Do you want
-              to work together?
+            <h2>
+              <!-- <img src="../assets/logo2.svg" alt="" height="40vh" /> -->Do
+              you want to work together?
             </h2>
           </div>
           <div class="mt-4">
@@ -276,7 +271,8 @@
             <b-container class="bv-example-row">
               <b-row>
                 <b-col
-                  cols="2"
+                  cols="3"
+                  sm="2"
                   v-for="element in socialMedia[0].elements"
                   :key="element.name"
                 >
@@ -297,8 +293,11 @@
             </b-container>
           </div>
         </b-col>
-        <b-col align-h="center">
-          <b-card style="max-width: 20rem" class="mx-auto mb-2">
+        <b-col align-h="center" class="mt-5">
+          <b-card
+            style="max-width: 20rem; border: none; border-radius: 20px"
+            class="mx-auto mb-2"
+          >
             <div class="mt-2">Name</div>
             <b-form-input placeholder="e.g. John Doe"></b-form-input>
             <div class="mt-2">Email</div>
@@ -307,10 +306,11 @@
             <b-form-textarea
               id="textarea"
               placeholder="Enter something..."
-              rows="3"
-              max-rows="6"
+              rows="5"
             ></b-form-textarea>
-            <b-button href="#" variant="primary" class="mt-2">Send</b-button>
+            <b-button href="#" style="background-color: #e68a6e" class="mt-2"
+              >Send</b-button
+            >
           </b-card>
         </b-col>
       </b-row>
@@ -553,7 +553,6 @@ export default {
     padding: 0 35px;
   }
   .row5 {
-    height: 100vh;
     padding: 0 35px;
   }
   h1 {
@@ -579,7 +578,7 @@ export default {
     background-color: #ffc0ad;
     color: #271c19;
     width: 40%;
-    height: 40px;
+    height: 80px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -669,5 +668,10 @@ hr {
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+.card-body {
+  background-color: #ffc0ad;
+  border-radius: 20px;
 }
 </style>
