@@ -5,25 +5,25 @@
   like the MutationObserver, where you can look for changes in the DOM, 
   for example. And we need in this case the IntersectionObserver.
 */
-const animatedScrollObserver = new IntersectionObserver(
-  (entries, animatedScrollObserver) => {
-    /*
+const animatedScrollObserver = new IntersectionObserver((entries) => {
+  /*
         Looping through all entries, which are observed.
       */
-    entries.forEach((entry) => {
-      /*
+  entries.forEach((entry) => {
+    /*
           With this condition, we check whether the element is in the current viewport, 
           respectively if the entry intersects with the viewport.
           If true, then we add the enter class and call the unobserve function.
           Because we don’t have to observe it anymore.
         */
-      if (entry.isIntersecting) {
-        entry.target.classList.add("enter");
-        animatedScrollObserver.unobserve(entry.target);
-      }
-    });
-  }
-);
+    if (entry.isIntersecting) {
+      entry.target.classList.add("enter");
+    } else {
+      entry.target.classList.remove("enter");
+      entry.target.classList.add("before-enter");
+    }
+  });
+});
 
 /*
     The object for our vue directive.

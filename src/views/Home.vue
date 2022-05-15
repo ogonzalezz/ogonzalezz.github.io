@@ -96,8 +96,9 @@
         align-v="center"
         cols="1"
         cols-sm="2"
+        v-scrollanimation
       >
-        <b-col v-scrollanimation>
+        <b-col>
           <div class="text-left">
             <h2 class="pb-4">
               <img src="../assets/dado1.svg" alt="" height="55vh" /> ABOUT ME
@@ -111,7 +112,7 @@
           </a> -->
           </div>
         </b-col>
-        <b-col v-scrollanimation>
+        <b-col>
           <div>
             <img
               src="../assets/me.png"
@@ -129,8 +130,9 @@
         align-v="center"
         cols="1"
         cols-sm="2"
+        v-scrollanimation
       >
-        <b-col v-scrollanimation>
+        <b-col>
           <div class="text-left">
             <h2 class="pb-4">
               <img src="../assets/dado2.svg" alt="" height="55vh" />
@@ -151,7 +153,7 @@
           </a> -->
           </div>
         </b-col>
-        <b-col v-scrollanimation>
+        <b-col>
           <div>
             <b-container class="bv-example-row">
               <b-row>
@@ -191,8 +193,9 @@
         align-v="center"
         cols="1"
         cols-sm="2"
+        v-scrollanimation
       >
-        <b-col v-scrollanimation>
+        <b-col>
           <div class="text-left">
             <h2 class="pb-4">
               <img src="../assets/dado3.svg" alt="" height="55vh" /> MY PROJECTS
@@ -200,7 +203,7 @@
             <p>Here are some of the projects I've done.</p>
           </div>
         </b-col>
-        <b-col v-scrollanimation>
+        <b-col>
           <div>
             <b-carousel
               id="carousel-fade"
@@ -246,6 +249,7 @@
         align-v="center"
         cols="1"
         cols-sm="2"
+        v-scrollanimation
       >
         <b-col class="text-left">
           <div>
@@ -599,7 +603,7 @@ export default {
 }
 .before-enter {
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateX(-100px);
   transition: all 2s ease-out;
   overflow-x: hidden;
 }
