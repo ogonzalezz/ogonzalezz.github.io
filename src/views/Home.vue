@@ -138,16 +138,27 @@
               <img src="../assets/dado2.svg" alt="" height="55vh" />
               MY SKILLS
             </h2>
-            <p>
-              This is my current knowledge but I will never stop learning more!
-            </p>
-            <b-button
-              class="me-2 skillsButton"
-              v-for="(section, index) in sections"
-              :key="section.name"
-              @click="changeSection(index)"
-            >
-            </b-button>
+            <p>This is my current knowledge but I never stop learning!</p>
+            <b-row>
+              <b-col
+                cols="3"
+                sm="2"
+                v-for="(section, index) in sections"
+                :key="section.name"
+                @click="changeSection(index)"
+              >
+                <div
+                  style="
+                    background-color: #ffc0ad;
+                    border-radius: 10px;
+                    padding: 10px;
+                    width: 60px;
+                  "
+                >
+                  <img :src="section.image" alt="" width="100%" />
+                </div>
+              </b-col>
+            </b-row>
             <!-- <a href="./avatar.png" download>
             <button type="button">Download</button>
           </a> -->
@@ -254,8 +265,8 @@
         <b-col class="text-left">
           <div>
             <h2>
-              <!-- <img src="../assets/logo2.svg" alt="" height="40vh" /> -->Do
-              you want to work together?
+              <img src="../assets/logo2.svg" alt="" height="55vh" />
+              DO YOU WANT US TO WORK TOGETHER?
             </h2>
           </div>
           <div class="mt-4">
@@ -302,19 +313,38 @@
             style="max-width: 20rem; border: none; border-radius: 20px"
             class="mx-auto mb-2"
           >
-            <div class="mt-2">Name</div>
-            <b-form-input placeholder="e.g. John Doe"></b-form-input>
-            <div class="mt-2">Email</div>
-            <b-form-input placeholder="Enter your name"></b-form-input>
-            <div class="mt-2">Message</div>
-            <b-form-textarea
-              id="textarea"
-              placeholder="Enter something..."
-              rows="5"
-            ></b-form-textarea>
-            <b-button href="#" style="background-color: #e68a6e" class="mt-2"
-              >Send</b-button
+            <form
+              target="_blank"
+              action="https://formsubmit.co/opt3.oscar@gmail.com"
+              method="POST"
             >
+              <div class="mt-2">Name</div>
+              <b-form-input
+                placeholder="e.g. John Doe"
+                required
+                name="name"
+              ></b-form-input>
+              <div class="mt-2">Email</div>
+              <b-form-input
+                placeholder="Enter your name"
+                required
+                name="email"
+              ></b-form-input>
+              <div class="mt-2">Message</div>
+              <b-form-textarea
+                id="textarea"
+                placeholder="Enter something..."
+                rows="5"
+                required
+                name="message"
+              ></b-form-textarea>
+              <b-button
+                type="submit"
+                style="background-color: #e68a6e"
+                class="mt-2"
+                >Send</b-button
+              >
+            </form>
           </b-card>
         </b-col>
       </b-row>
@@ -366,6 +396,7 @@ export default {
         {
           id: "0",
           name: "LANGUAGES",
+          image: require("../assets/prog.png"),
           elements: [
             {
               id: "0",
@@ -402,6 +433,7 @@ export default {
         {
           id: "1",
           name: "FRAMEWORKS",
+          image: require("../assets/framework.png"),
           elements: [
             {
               id: "0",
@@ -438,6 +470,7 @@ export default {
         {
           id: "2",
           name: "TOOLS",
+          image: require("../assets/tool.png"),
           elements: [
             {
               id: "0",
