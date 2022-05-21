@@ -278,7 +278,7 @@
             <p>Montcada i Reixac, Barcelona</p>
           </div>
           <div>
-            <h3>{{ data[0].elements[0].el14 }}</h3>
+            <h3>{{ data[0].elements[0].el131 }}</h3>
             <p>727735532</p>
           </div>
           <div>
@@ -286,7 +286,7 @@
             <p>opt3.oscar@gmail.com</p>
           </div>
           <div>
-            <h3>{{ data[0].elements[0].el15 }}</h3>
+            <h3>{{ data[0].elements[0].el14 }}</h3>
             <b-container class="bv-example-row">
               <b-row>
                 <b-col
@@ -328,7 +328,7 @@
                 value="https://oscargonzalez.onrender.com/"
               />
               <input type="hidden" name="_captcha" value="false" />
-              <div class="mt-2">{{ data[0].elements[0].el16 }}</div>
+              <div class="mt-2">{{ data[0].elements[0].el15 }}</div>
               <b-form-input
                 placeholder="e.g. John Doe"
                 required
@@ -340,7 +340,7 @@
                 required
                 name="email"
               ></b-form-input>
-              <div class="mt-2">{{ data[0].elements[0].el17 }}</div>
+              <div class="mt-2">{{ data[0].elements[0].el16 }}</div>
               <b-form-textarea
                 id="textarea"
                 placeholder="Enter something..."
@@ -352,7 +352,7 @@
                 type="submit"
                 style="background-color: #e68a6e"
                 class="mt-2"
-                >Send</b-button
+                >{{ data[0].elements[0].el17 }}</b-button
               >
             </form>
           </b-card>
@@ -399,6 +399,7 @@ export default {
               el11: "Here are some of the projects I've done.",
               el12: "DO YOU WANT US TO WORK TOGETHER?",
               el13: "Address",
+              el131: "Phone",
               el14: "Social media",
               el15: "Name",
               el16: "Message",
@@ -424,6 +425,7 @@ export default {
               el11: "Estos son algunos de los proyectos que he hecho",
               el12: "¿QUIERES QUE TRABAJEMOS JUNTOS?",
               el13: "Dirección",
+              el131: "Teléfono",
               el14: "Redes sociales",
               el15: "Nombre",
               el16: "Mensaje",
@@ -449,6 +451,7 @@ export default {
               el11: "Aquests son alguns dels projectes que he fet",
               el12: "¿VOLS QUE TREBALLEM JUNTS?",
               el13: "Direcció",
+              el131: "Telèfon",
               el14: "Xarxes socials",
               el15: "Nom",
               el16: "Missatge",
