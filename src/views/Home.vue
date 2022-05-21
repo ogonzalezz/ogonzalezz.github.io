@@ -73,7 +73,7 @@
               <div class="gridItem"></div>
               <div class="gridItem"></div>
               <div class="gridItem"></div>
-              <div class="gridItem2">Tap</div>
+              <div class="gridItem2">{{ data[0].elements[0].el1 }}</div>
             </div>
             <!--             <img
               src="../assets/palmtree.svg"
@@ -85,7 +85,9 @@
         </b-row>
       </b-col>
       <b-col align-self="start">
-        <b-button class="cta" href="#contactSection">GET IN TOUCH</b-button>
+        <b-button class="cta" href="#contactSection">{{
+          data[0].elements[0].el2
+        }}</b-button>
       </b-col>
     </b-row>
     <hr />
@@ -101,12 +103,13 @@
         <b-col>
           <div class="text-left">
             <h2 class="pb-4">
-              <img src="../assets/dado1.svg" alt="" height="55vh" /> ABOUT ME
+              <img src="../assets/dado1.svg" alt="" height="55vh" />
+              {{ data[0].elements[0].el3 }}
             </h2>
-            <p>Here you have a video where you can know me better.</p>
-            <b-button class="cvButton" href="./avatar.png" download
-              >GET MY CV</b-button
-            >
+            <p>{{ data[0].elements[0].el4 }}</p>
+            <b-button class="cvButton" href="./avatar.png" download>{{
+              data[0].elements[0].el5
+            }}</b-button>
             <!-- <a href="./avatar.png" download>
             <button type="button">Download</button>
           </a> -->
@@ -136,9 +139,9 @@
           <div class="text-left">
             <h2 class="pb-4">
               <img src="../assets/dado2.svg" alt="" height="55vh" />
-              MY SKILLS
+              {{ data[0].elements[0].el6 }}
             </h2>
-            <p>This is my current knowledge but I never stop learning!</p>
+            <p>{{ data[0].elements[0].el7 }}</p>
             <b-row>
               <b-col
                 cols="3"
@@ -209,9 +212,10 @@
         <b-col>
           <div class="text-left">
             <h2 class="pb-4">
-              <img src="../assets/dado3.svg" alt="" height="55vh" /> MY PROJECTS
+              <img src="../assets/dado3.svg" alt="" height="55vh" />
+              {{ data[0].elements[0].el10 }}
             </h2>
-            <p>Here are some of the projects I've done.</p>
+            <p>{{ data[0].elements[0].el11 }}</p>
           </div>
         </b-col>
         <b-col>
@@ -266,15 +270,15 @@
           <div>
             <h2>
               <img src="../assets/logo2.svg" alt="" height="55vh" />
-              DO YOU WANT US TO WORK TOGETHER?
+              {{ data[0].elements[0].el12 }}
             </h2>
           </div>
           <div class="mt-4">
-            <h3>Address</h3>
+            <h3>{{ data[0].elements[0].el13 }}</h3>
             <p>Montcada i Reixac, Barcelona</p>
           </div>
           <div>
-            <h3>Phone</h3>
+            <h3>{{ data[0].elements[0].el14 }}</h3>
             <p>727735532</p>
           </div>
           <div>
@@ -282,7 +286,7 @@
             <p>opt3.oscar@gmail.com</p>
           </div>
           <div>
-            <h3>Social media</h3>
+            <h3>{{ data[0].elements[0].el15 }}</h3>
             <b-container class="bv-example-row">
               <b-row>
                 <b-col
@@ -318,7 +322,13 @@
               action="https://formsubmit.co/opt3.oscar@gmail.com"
               method="POST"
             >
-              <div class="mt-2">Name</div>
+              <input
+                type="hidden"
+                name="_next"
+                value="https://oscargonzalez.onrender.com/"
+              />
+              <input type="hidden" name="_captcha" value="false" />
+              <div class="mt-2">{{ data[0].elements[0].el16 }}</div>
               <b-form-input
                 placeholder="e.g. John Doe"
                 required
@@ -330,7 +340,7 @@
                 required
                 name="email"
               ></b-form-input>
-              <div class="mt-2">Message</div>
+              <div class="mt-2">{{ data[0].elements[0].el17 }}</div>
               <b-form-textarea
                 id="textarea"
                 placeholder="Enter something..."
@@ -358,6 +368,11 @@
 /* import FooterLanding from "@/components/FooterLanding.vue"; */
 export default {
   name: "Home",
+  mounted() {
+    this.$root.$on("message", (msg) => {
+      console.log(msg);
+    });
+  },
   components: {
     /* "skills-card": SkillsCard, */
     /* "cube-3d": Cube3d, */
@@ -365,6 +380,83 @@ export default {
   },
   data() {
     return {
+      data: [
+        {
+          id: "0",
+          lang: "english",
+          elements: [
+            {
+              el1: "TAP",
+              el2: "GET IN TOUCH",
+              el3: "ABOUT ME",
+              el4: "Here you have a video where you can know me better.",
+              el5: "GET MY CV",
+              el6: "MY SKILLS",
+              el7: "This is my current knowledge but I never stop learning!",
+              el8: "LANGUAGES",
+              el9: "TOOLS",
+              el10: "MY PROJECTS",
+              el11: "Here are some of the projects I've done.",
+              el12: "DO YOU WANT US TO WORK TOGETHER?",
+              el13: "Address",
+              el14: "Social media",
+              el15: "Name",
+              el16: "Message",
+              el17: "Send",
+            },
+          ],
+        },
+        {
+          id: "1",
+          lang: "español",
+          elements: [
+            {
+              el1: "TOCA",
+              el2: "PONTE EN CONTACTO",
+              el3: "SOBRE MÍ",
+              el4: "Aquí tienes un vídeo donde me puedes conocer mejor",
+              el5: "DESCARGA MI CV",
+              el6: "MIS HABILIDADES",
+              el7: "Estos son mis conocimientos actuales, ¡pero nunca dejo de aprender!",
+              el8: "LENGUAJES",
+              el9: "HERRAMIENTAS",
+              el10: "MIS PROYECTOS",
+              el11: "Estos son algunos de los proyectos que he hecho",
+              el12: "¿QUIERES QUE TRABAJEMOS JUNTOS?",
+              el13: "Dirección",
+              el14: "Redes sociales",
+              el15: "Nombre",
+              el16: "Mensaje",
+              el17: "Enviar",
+            },
+          ],
+        },
+        {
+          id: "2",
+          lang: "català",
+          elements: [
+            {
+              el1: "TOCA",
+              el2: "POSA'T EN CONTACTE",
+              el3: "SOBRE MÍ",
+              el4: "Aquí tens un video on em pots conéixer millor",
+              el5: "DESCARREGA EL MEU CV",
+              el6: "LES MEVES HABILITATS",
+              el7: "Aquests son els meus coneixements, però mai deixo d'apendre!",
+              el8: "LLENGUATGES",
+              el9: "EINES",
+              el10: "ELS MEUS PROJECTES",
+              el11: "Aquests son alguns dels projectes que he fet",
+              el12: "¿VOLS QUE TREBALLEM JUNTS?",
+              el13: "Direcció",
+              el14: "Xarxes socials",
+              el15: "Nom",
+              el16: "Missatge",
+              el17: "Enviar",
+            },
+          ],
+        },
+      ],
       selectedSection: 0,
       socialMedia: [
         {
