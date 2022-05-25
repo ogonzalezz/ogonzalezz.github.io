@@ -29,13 +29,16 @@
 
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-item-dropdown :text="dataNav[langId].elements[0].el6" right>
+            <b-dropdown
+              :text="dataNav[langId].elements[0].el6"
+              right
+              class="background-color: #ffc0ad"
+            >
               <b-dropdown-item
                 href="#"
                 :value="lang"
                 @click="
                   lang = languages[0].name;
-                  sendMessage;
                   langId = 0;
                 "
                 >{{ languages[0].name }}</b-dropdown-item
@@ -45,7 +48,6 @@
                 :value="lang"
                 @click="
                   lang = languages[1].name;
-                  sendMessage;
                   langId = 1;
                 "
                 >{{ languages[1].name }}</b-dropdown-item
@@ -55,12 +57,11 @@
                 :value="lang"
                 @click="
                   lang = languages[2].name;
-                  sendMessage;
                   langId = 2;
                 "
                 >{{ languages[2].name }}</b-dropdown-item
               >
-            </b-nav-item-dropdown>
+            </b-dropdown>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -296,25 +297,29 @@
                 <a
                   href="https://github.com/OscarCastellaSanSegundo/Project2"
                   target="_blank"
-                >
+                  >Juego con JS
                   <b-carousel-slide
                     img-src="../assets/jsGame.gif"
                     style="border-radius: 20px"
+                    img-alt="Juego con JS"
                   ></b-carousel-slide>
                 </a>
                 <a
                   href="https://github.com/OscarCastellaSanSegundo/Project2"
                   target="_blank"
-                >
+                  >App de salud
                   <b-carousel-slide
                     img-src="../assets/health.gif"
                     style="border-radius: 20px"
+                    img-alt="App de salud"
                   ></b-carousel-slide>
                 </a>
-                <a href="https://movieapp-mpf8.onrender.com" target="_blank">
+                <a href="https://movieapp-mpf8.onrender.com" target="_blank"
+                  >App de películas
                   <b-carousel-slide
                     img-src="../assets/movieApp.gif"
                     style="border-radius: 20px"
+                    img-alt="App de películas"
                   ></b-carousel-slide>
                 </a>
               </b-carousel>
@@ -368,6 +373,7 @@
                       "
                     >
                       <a :href="element.link" target="_blank">
+                        <!-- {{ element.name }} -->
                         <img :src="element.image" alt="" width="100%" />
                       </a>
                     </div>
@@ -414,6 +420,7 @@
                 ></b-form-textarea>
                 <b-button
                   type="submit"
+                  variant="info"
                   style="background-color: #e68a6e"
                   class="mt-2"
                   >{{ data[langId].elements[0].el17 }}</b-button
@@ -743,14 +750,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#nav a.nav-link {
-  color: #fffffe !important;
+.navbar-dark .navbar-nav .nav-link {
+  color: #fffffe;
 }
-#nav a.nav-link:hover {
-  color: #ffc0ad !important;
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #ffc0ad;
 }
 
-#nav a.router-link-exact-active {
+.nav-link .router-link-exact-active .router-link-active {
   color: #e68a6e !important;
 }
 
@@ -963,5 +970,11 @@ hr {
   border-radius: 20px;
   color: black;
   padding: 20px;
+}
+
+::v-deep .btn-secondary {
+  background-color: #ffc0ad !important;
+  border: none;
+  color: black;
 }
 </style>
