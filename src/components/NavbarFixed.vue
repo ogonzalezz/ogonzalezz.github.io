@@ -2,7 +2,7 @@
   <div class="fixed-top">
     <b-navbar toggleable="lg" type="dark">
       <b-navbar-brand to="/#homeSection">
-        <img src="../assets/logo3.svg" alt="Kitten" />
+        <img src="../assets/logo3.svg" alt="logo" />
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -129,11 +129,7 @@ export default {
       ],
     };
   },
-  methods: {
-    sendMessage() {
-      this.$root.$emit("message", this.lang);
-    },
-  },
+  methods: {},
 };
 </script>
 <style lang="scss" scoped>

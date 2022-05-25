@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <div id="nav">
-      <navbar-fixed></navbar-fixed>
+      <!-- <navbar-fixed></navbar-fixed> -->
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
-import NavbarFixed from "@/components/NavbarFixed.vue";
+/* import NavbarFixed from "@/components/NavbarFixed.vue"; */
 export default {
-  components: { "navbar-fixed": NavbarFixed },
+  /* components: { "navbar-fixed": NavbarFixed }, */
 };
 </script>
 
