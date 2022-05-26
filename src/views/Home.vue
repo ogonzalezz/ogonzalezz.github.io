@@ -35,7 +35,6 @@
               class="background-color: #ffc0ad"
             >
               <b-dropdown-item
-                href="#"
                 :value="lang"
                 @click="
                   lang = languages[0].name;
@@ -44,7 +43,6 @@
                 >{{ languages[0].name }}</b-dropdown-item
               >
               <b-dropdown-item
-                href="#"
                 :value="lang"
                 @click="
                   lang = languages[1].name;
@@ -53,7 +51,6 @@
                 >{{ languages[1].name }}</b-dropdown-item
               >
               <b-dropdown-item
-                href="#"
                 :value="lang"
                 @click="
                   lang = languages[2].name;
