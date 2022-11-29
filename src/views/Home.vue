@@ -73,13 +73,13 @@
       >
         <b-col>
           <b-row cols="1">
-            <b-col sm="8" class="text-center">
+            <b-col sm="6" class="text-center">
               <h1>
                 ÓSCAR <br />
                 GONZÁLEZ
               </h1>
             </b-col>
-            <b-col sm="4">
+            <b-col sm="6">
               <div class="grid" style="position: relative">
                 <div class="gridItem"></div>
                 <div class="gridItem"></div>
@@ -152,14 +152,14 @@
         >
           <b-col>
             <div class="text-left">
-              <h2 class="pb-4">
+              <h2 class="pb-4" tabindex="1">
                 <img src="../assets/dado1.svg" alt="first icon" height="55vh" />
                 {{ data[langId].elements[0].el3 }}
               </h2>
               <p>{{ data[langId].elements[0].el4 }}</p>
-              <b-button class="cvButton" href="./avatar.png" download>{{
-                data[langId].elements[0].el5
-              }}</b-button>
+              <b-button class="cvButton">
+                <a href="/avatar.png" download="avatar"> Download </a>
+              </b-button>
               <!-- <a href="./avatar.png" download>
               <button type="button">Download</button>
             </a> -->
@@ -174,7 +174,7 @@
               </div>
               <div v-else>
                 <img
-                  src="../assets/me.png"
+                  src="../assets/image.svg"
                   alt="me"
                   class="avatarImage"
                   width="100%"
@@ -282,6 +282,35 @@
           </b-col>
           <b-col>
             <div>
+              <!-- <b-card
+                title="JS GAME"
+                img-src="../assets/jsGame.gif"
+                img-alt="JS GAME"
+                img-top
+                img-width="10"
+                style="color: black"
+              >
+              </b-card>
+
+              <b-card
+                title="HEALTH APP"
+                img-src="../assets/health.gif"
+                img-alt="HEALTH APP"
+                img-top
+                img-width="10"
+                style="color: black"
+              >
+              </b-card>
+
+              <b-card
+                title="MOVIE APP"
+                img-src="../assets/movieApp.gif"
+                img-alt="MOVIE APP"
+                img-top
+                img-width="10"
+                style="color: black"
+              >
+              </b-card> -->
               <b-carousel
                 id="carousel-fade"
                 style="text-shadow: 0px 0px 2px #000"
@@ -290,6 +319,8 @@
                 indicators
                 img-width="1024"
                 img-height="480"
+                @sliding-start="onSlideStart"
+                @sliding-end="onSlideEnd"
               >
                 <a
                   href="https://github.com/OscarCastellaSanSegundo/Project2"
@@ -371,7 +402,11 @@
                     >
                       <a :href="element.link" target="_blank">
                         <!-- {{ element.name }} -->
-                        <img :src="element.image" alt="" width="100%" />
+                        <img
+                          :src="element.image"
+                          :alt="element.name"
+                          width="100%"
+                        />
                       </a>
                     </div>
                   </b-col>
@@ -381,7 +416,13 @@
           </b-col>
           <b-col align-h="center" class="mt-5">
             <b-card
-              style="max-width: 20rem; border: none; border-radius: 20px"
+              style="
+                max-width: 20rem;
+                border: none;
+                border-radius: 20px;
+                background-color: #ffc0ad;
+                color: black;
+              "
               class="mx-auto mb-2"
             >
               <form
@@ -395,19 +436,23 @@
                   value="https://oscargonzalez.onrender.com/"
                 />
                 <input type="hidden" name="_captcha" value="false" />
-                <div class="mt-2">{{ data[langId].elements[0].el15 }}</div>
+                <label class="mt-2" for="name">{{
+                  data[langId].elements[0].el15
+                }}</label>
                 <b-form-input
                   placeholder="e.g. John Doe"
                   required
                   name="name"
                 ></b-form-input>
-                <div class="mt-2">Email</div>
+                <label class="mt-2" for="email">Email</label>
                 <b-form-input
                   placeholder="Enter your name"
                   required
                   name="email"
                 ></b-form-input>
-                <div class="mt-2">{{ data[langId].elements[0].el16 }}</div>
+                <label class="mt-2" for="message">{{
+                  data[langId].elements[0].el16
+                }}</label>
                 <b-form-textarea
                   id="textarea"
                   placeholder="Enter something..."
@@ -584,7 +629,7 @@ export default {
               el10: "ELS MEUS PROJECTES",
               el11: "Aquests son alguns dels projectes que he fet",
               el12: "¿VOLS QUE TREBALLEM JUNTS?",
-              el13: "Direcció",
+              el13: "Adreça",
               el131: "Telèfon",
               el14: "Xarxes socials",
               el15: "Nom",
@@ -784,6 +829,14 @@ b-navbar {
     height: 100vh;
   }
   h1 {
+    font-size: 130px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Steelfish Rg", "helvetica neue", helvetica, arial, sans-serif;
+    font-weight: 800;
+    text-align: left;
+  }
+  h6 {
     background-image: url(../assets/text.gif);
     -webkit-text-stroke: 2px #e68a6e; /* width and color */
     background-repeat: repeat;
@@ -897,9 +950,6 @@ b-navbar {
 .contactInfo {
   color: white;
 }
-.card-body {
-  color: black;
-}
 .avatarImage {
   opacity: 0.8;
   border: 1px solid black;
@@ -957,9 +1007,11 @@ hr {
   left: 50%;
 }
 
-.card-body {
+/* . */
+card-body {
   background-color: #ffc0ad;
   border-radius: 20px;
+  color: black;
 }
 
 .aboutMe {
@@ -973,5 +1025,31 @@ hr {
   background-color: #ffc0ad !important;
   border: none;
   color: black;
+}
+.carousel-indicators li {
+  border-color: #e100ff;
+  border-width: 12px;
+  border-style: none solid none solid;
+  background-color: #e100ff;
+  height: 2px;
+  margin: 0 16px;
+  opacity: 1;
+  padding: 1px;
+  position: relative;
+}
+.carousel-indicators li::after {
+  bottom: -7px;
+  content: none;
+  left: -7px;
+  padding: 1px;
+  position: absolute;
+  right: -7px;
+  top: -7px;
+}
+.carousel-indicators li.active {
+  background-color: #7f00ff;
+  border-color: #7f00ff;
+  border-width: 12px;
+  border-style: none solid none solid;
 }
 </style>
