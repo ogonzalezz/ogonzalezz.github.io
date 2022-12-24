@@ -72,15 +72,31 @@
         cols="1"
       >
         <b-col>
-          <b-row cols="1">
-            <b-col sm="6" class="text-center">
+          <b-row cols="1" align-h="around" align-v="center">
+            <b-col sm="6">
               <h1>
                 ÓSCAR <br />
                 GONZÁLEZ
               </h1>
+              <h2 align="left">
+                {{ data[langId].elements[0].el21 }}
+              </h2>
+              <div align="left">
+                <b-button class="cta" href="#contactSection">{{
+                  data[langId].elements[0].el2
+                }}</b-button>
+              </div>
             </b-col>
-            <b-col sm="6">
-              <div class="grid" style="position: relative">
+            <b-col sm="4" align-h="center">
+              <img
+                src="../assets/image.svg"
+                alt="me"
+                class="avatarImage"
+                width="100%"
+                align-h="center"
+                opacity="0"
+              />
+              <!-- <div class="grid" style="position: relative">
                 <div class="gridItem"></div>
                 <div class="gridItem"></div>
                 <div class="gridItem"></div>
@@ -130,14 +146,9 @@
                 <div class="gridItem"></div>
                 <div class="gridItem"></div>
                 <div class="gridItem2">{{ data[langId].elements[0].el1 }}</div>
-              </div>
+              </div> -->
             </b-col>
           </b-row>
-        </b-col>
-        <b-col align-self="start">
-          <b-button class="cta" href="#contactSection">{{
-            data[langId].elements[0].el2
-          }}</b-button>
         </b-col>
       </b-row>
       <hr />
@@ -157,28 +168,21 @@
                 {{ data[langId].elements[0].el3 }}
               </h2>
               <p>{{ data[langId].elements[0].el4 }}</p>
-              <b-button class="cvButton">
-                <a href="/avatar.png" download="avatar"> Download </a>
+              <b-button
+                class="cta"
+                href="https://drive.google.com/file/d/1ZGCPYHn7cRKTzUfwgvI-Igu6HYZXQnzO/view?usp=sharing"
+                target="_blank"
+              >
+                CV
               </b-button>
-              <!-- <a href="./avatar.png" download>
-              <button type="button">Download</button>
-            </a> -->
             </div>
           </b-col>
           <b-col>
-            <div @click="hover = !hover">
-              <div v-if="hover" class="aboutMe">
+            <div>
+              <div class="aboutMe">
                 {{ data[langId].elements[0].el41 }} <br /><br />
                 {{ data[langId].elements[0].el42 }} <br /><br />
                 {{ data[langId].elements[0].el43 }}
-              </div>
-              <div v-else>
-                <img
-                  src="../assets/image.svg"
-                  alt="me"
-                  class="avatarImage"
-                  width="100%"
-                />
               </div>
             </div>
           </b-col>
@@ -335,11 +339,11 @@
                 <a
                   href="https://github.com/OscarCastellaSanSegundo/Project2"
                   target="_blank"
-                  >App de salud
+                  >
                   <b-carousel-slide
                     img-src="../assets/health.gif"
                     style="border-radius: 20px"
-                    img-alt="App de salud"
+                    img-alt=""
                   ></b-carousel-slide>
                 </a>
                 <a href="https://movieapp-mpf8.onrender.com" target="_blank"
@@ -440,13 +444,13 @@
                   data[langId].elements[0].el15
                 }}</label>
                 <b-form-input
-                  placeholder="e.g. John Doe"
+                  placeholder="John Doe"
                   required
                   name="name"
                 ></b-form-input>
                 <label class="mt-2" for="email">Email</label>
                 <b-form-input
-                  placeholder="Enter your name"
+                  placeholder="fdasdf@gmail.com"
                   required
                   name="email"
                 ></b-form-input>
@@ -455,7 +459,7 @@
                 }}</label>
                 <b-form-textarea
                   id="textarea"
-                  placeholder="Enter something..."
+                  placeholder="xxxx xxxx"
                   rows="5"
                   required
                   name="message"
@@ -558,8 +562,9 @@ export default {
             {
               el1: "TAP",
               el2: "GET IN TOUCH",
+              el21: "HI, I'M A JUNIOR WEB DEVELOPER LOOKING FOR MY FIRST DEV JOB",
               el3: "ABOUT ME",
-              el4: "Click the image to know me better.",
+              el4: "Check my cv to know me better.",
               el41: "Hello, I'm Óscar and I'm a web developer who has just finished his studies and is looking forward to starting his professional career.",
               el42: "I love listening to music and playing the guitar, watching movies and skating to unwind.",
               el43: "My soft skills include my resilience, learning new skills as required, working as a team, supporting others and being assertive.",
@@ -587,8 +592,9 @@ export default {
             {
               el1: "TOCA",
               el2: "PONTE EN CONTACTO",
+              el21: "HOLA, SOY UN WEB DEV JUNIOR BUSCANDO SU PRIMER TRABAJO EN EL MUNDILLO",
               el3: "SOBRE MÍ",
-              el4: "Pulsa en la imagen para conocerme mejor.",
+              el4: "Accede a mi cv para conocerme mejor.",
               el41: "Hola, soy Óscar y soy un desarrollador web que acaba de terminar sus estudios y está deseando comenzar su carrera profesional.",
               el42: "Me encanta escuchar música y tocar la guitarra, ver películas y patinar para desconectar.",
               el43: "Mis habilidades blandas incluyen mi resiliencia, aprender nuevas habilidades según sea necesario, trabajar en equipo, apoyar a los demás y ser asertivo.",
@@ -616,8 +622,9 @@ export default {
             {
               el1: "TOCA",
               el2: "POSA'T EN CONTACTE",
+              el21: "HOLA, SÓC UN WEB DEV JUNIOR BUSCANT EL SEU PRIMER TREBALL RELACIONAT",
               el3: "SOBRE MI",
-              el4: "Prem l'imatge per coneixer-me millor.",
+              el4: "Mira el meu cv per coneixer-me millor.",
               el41: "Hola, sóc l'Óscar i sóc un desenvolupador web que ha acabat els estudis i té moltes ganes de començar la seva carrera professional.",
               el42: "M'encanta escoltar música i tocar la guitarra, veure pel·lícules i patinar per relaxar-me.",
               el43: "Les meves habilitats suaus inclouen la meva resiliència, aprendre noves habilitats segons sigui necessari, treballar en equip, donar suport als altres i ser assertiu.",
@@ -815,6 +822,9 @@ b-navbar {
   .row1 {
     height: 90vh;
     margin: 0;
+    background-image: url(../assets/backg.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
   }
   .row2 {
     height: 100vh;
@@ -828,8 +838,11 @@ b-navbar {
   .row5 {
     height: 100vh;
   }
+  .avatarImage {
+    border-radius: 25px;
+  }
   h1 {
-    font-size: 130px;
+    font-size: 100px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: "Steelfish Rg", "helvetica neue", helvetica, arial, sans-serif;
@@ -879,6 +892,9 @@ b-navbar {
   .row1 {
     height: 100vh;
     margin: 0;
+    background-image: url(../assets/backg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .row2 {
     height: 100vh;
@@ -895,7 +911,18 @@ b-navbar {
   .row5 {
     padding: 0 35px;
   }
+  .avatarImage {
+    display: none;
+  }
   h1 {
+    font-size: 45px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Steelfish Rg", "helvetica neue", helvetica, arial, sans-serif;
+    font-weight: 800;
+    text-align: left;
+  }
+  h6 {
     background-image: url(../assets/text.gif);
     -webkit-text-stroke: 1px #e68a6e; /* width and color */
     background-repeat: repeat;
@@ -949,11 +976,6 @@ b-navbar {
 }
 .contactInfo {
   color: white;
-}
-.avatarImage {
-  opacity: 0.8;
-  border: 1px solid black;
-  border-radius: 25px;
 }
 .cta {
   background-color: #ffc0ad;
